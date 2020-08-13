@@ -11,5 +11,8 @@
 
     <artifactId>mall-model</artifactId>
 
+    <dependencies>
+
+    </dependencies>
 
 </project>

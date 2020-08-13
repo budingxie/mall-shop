@@ -1,1 +1,16 @@
 #本地开发配置
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?allowMultiQueries=true&charset=utf8&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: root@123
+
+# Mybatis-plus Config
+mybatis-plus:
+  mapper-locations: classpath:**/*Mapper.xml
+
+# Logger Config
+log:
+  path: /home/username/${spring.application.name}/log

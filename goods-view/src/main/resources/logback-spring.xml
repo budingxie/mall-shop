@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="5 seconds">
+
+    <!-- 获取yml中的log地址 -->
+    <springProperty scope="context" name="logPath" source="log.path" defaultValue="/home/rd/log"/>
+
+    <!--项目info日志文件输出配置-->
+    <appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/info.log</file>
+        <encoder>
+            <pattern>%d|%-5level|%thread|%logger{40}|%L|%msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/info.log.%d{yyyy-MM-dd-HH}</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--项目error日志文件输出配置-->
+    <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/error.log</file>
+        <encoder>
+            <pattern>%d|%-5level|%thread|%logger{40}|%L|%msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/error.log.%d{yyyy-MM-dd-HH}</fileNamePattern>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d|%-5level|%thread|%logger{40}|%L|%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="ERROR"/>
+    <logger name="ch.qos.logback" level="ERROR"/>
+
+    <root level="DEBUG">
+        <appender-ref ref="infoAppender"/>
+        <appender-ref ref="errorAppender"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
