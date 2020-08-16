@@ -20,6 +20,8 @@
         <module>goods-view</module>
         <module>spring-cloud-alibaba-nacos-register-demo</module>
         <module>spring-cloud-alibaba-nacos-discovery-demo</module>
+        <module>cloud-alibaba-dubbo-provider</module>
+        <module>cloud-alibaba-dubbo-consumer</module>
     </modules>
 
     <properties>

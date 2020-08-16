@@ -1,0 +1,23 @@
+server:
+  port: 8091
+dubbo:
+  protocol:
+    #rpc通信协议dubbo、rmi等等
+    name: dubbo
+    #如果端口有占用，-1表示从20880开始自增
+    port: -1
+  registry:
+    # 注册地址挂载到spring cloud注册中心
+    address: spring-cloud://192.168.134.100
+spring:
+  main:
+    #在springboot2.1以及高版本增加的，调整bean定义覆盖
+    allow-bean-definition-overriding: true
+  application:
+    #服务名称
+    name: provider-application
+  cloud:
+    nacos:
+      discovery:
+        #spring cloud注册中心
+        server-addr: 192.168.134.100:8848

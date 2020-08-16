@@ -9,37 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-alibaba-nacos-register-demo</artifactId>
+    <artifactId>cloud-alibaba-dubbo-consumer</artifactId>
 
     <properties>
         <spring-cloud.version>Greenwich.SR4</spring-cloud.version>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!--代替fastJson的低版本-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.70</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>0.9.0.RELEASE</version>
-            <!--排除高危版本-->
-            <exclusions>
-                <exclusion>
-                    <artifactId>fastjson</artifactId>
-                    <groupId>com.alibaba</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-    </dependencies>
 
     <!-- 版本控制 -->
     <dependencyManagement>
@@ -53,4 +27,53 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.mall.shopweb</groupId>
+            <artifactId>provider-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- web依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 服务url监控 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- Dubbo 依赖 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+            <version>2.1.1.RELEASE</version>
+        </dependency>
+
+        <!-- 代替fastJson的低版本 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.70</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>0.9.0.RELEASE</version>
+            <!-- 排除高危版本 -->
+            <exclusions>
+                <exclusion>
+                    <artifactId>fastjson</artifactId>
+                    <groupId>com.alibaba</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+    </dependencies>
+
 </project>
