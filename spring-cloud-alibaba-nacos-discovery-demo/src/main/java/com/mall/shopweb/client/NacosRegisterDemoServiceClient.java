@@ -1,7 +1,7 @@
 package com.mall.shopweb.client;
 
 
-import com.mall.shopweb.client.fallback.RemoteFallbackImpl;
+import com.mall.shopweb.client.fallback.RemoteFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
         contextId = "nacosRegisterDemoServiceClient",
         //服务名称
         value = "spring-cloud-alibaba-nacos-register-demo",
-        //远程调用失败回调
-        fallbackFactory = RemoteFallbackImpl.class)
+        //远程调用失败，兜底的数据
+        fallbackFactory = RemoteFallbackFactory.class)
 public interface NacosRegisterDemoServiceClient {
 
     @GetMapping("/nacosRegisterDemoService/helloNacos")

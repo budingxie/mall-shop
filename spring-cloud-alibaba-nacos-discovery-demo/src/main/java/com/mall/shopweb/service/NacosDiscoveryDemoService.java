@@ -3,7 +3,6 @@ package com.mall.shopweb.service;
 
 import com.mall.shopweb.client.NacosRegisterDemoServiceClient;
 import com.mall.shopweb.loadbalancer.ServerLoadBalancer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
