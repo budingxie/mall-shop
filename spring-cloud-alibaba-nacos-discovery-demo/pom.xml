@@ -11,13 +11,18 @@
 
     <artifactId>spring-cloud-alibaba-nacos-discovery-demo</artifactId>
 
+    <properties>
+        <spring-cloud.version>Greenwich.SR4</spring-cloud.version>
+    </properties>
+
     <dependencies>
+        <!-- web依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--代替fastJson的低版本-->
+        <!-- 代替fastJson的低版本 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -27,7 +32,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>0.9.0.RELEASE</version>
-            <!--排除高危版本-->
+            <!-- 排除高危版本 -->
             <exclusions>
                 <exclusion>
                     <artifactId>fastjson</artifactId>
@@ -35,7 +40,31 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- 采用feign的方式代理调用 -->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
     </dependencies>
+
+    <!-- 版本控制 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
 </project>
