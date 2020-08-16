@@ -18,6 +18,8 @@
     <modules>
         <module>mall-model</module>
         <module>goods-view</module>
+        <module>spring-cloud-alibaba-nacos-register-demo</module>
+        <module>spring-cloud-alibaba-nacos-discovery-demo</module>
     </modules>
 
     <properties>
