@@ -30,7 +30,7 @@ spring-cloud-alibaba-nacos-discovery-demo模块
 
 cloud-alibaba-dubbo-provider模块
 ---
-<br>生成者demo
+<br>生产者demo
 
 cloud-alibaba-dubbo-consumer模块
 ---
