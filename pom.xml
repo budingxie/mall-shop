@@ -22,6 +22,7 @@
         <module>spring-cloud-alibaba-nacos-discovery-demo</module>
         <module>cloud-alibaba-dubbo-provider</module>
         <module>cloud-alibaba-dubbo-consumer</module>
+        <module>cloud-gateway-demo</module>
     </modules>
 
     <properties>

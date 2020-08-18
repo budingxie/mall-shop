@@ -1,0 +1,41 @@
+#端口号限制：8081、8082、8083等808开头表示同一个服务的集群
+spring:
+  application:
+    # 服务名称
+    name: cloud-gateway-demo
+  cloud:
+    nacos:
+      discovery:
+        # 注册中心地址
+        server-addr: 192.168.134.100:8848
+    gateway:
+      discovery:
+        locator:
+          # 是否与服务注册发现组件结合，是，这样就可以采用服务名称进行路由策略
+          enabled: true
+      routes:
+        # 全局唯一的id，不写默认uuid
+        - id: spring-cloud-alibaba-nacos-register-demo
+          # 服务名称，负载均衡
+          uri: lb://spring-cloud-alibaba-nacos-register-demo
+#          filters:
+#            - StripPrefix=1
+          # 拦截 规则，还可以指定请求方式拦截等等
+          predicates:
+            - Path=/nacosRegisterDemoService/**
+        # 多个服务
+#        - id: abc
+#          uri: lb://abc
+#          filters:
+#            - StripPrefix=1
+#          predicates:
+#            - Path=/abc/**
+        # 多个服务
+#        - id: acd
+#          uri: lb://acd
+#          filters:
+#            - StripPrefix=1
+#          predicates:
+#            - Path=/acd/**
+server:
+  port: 80
