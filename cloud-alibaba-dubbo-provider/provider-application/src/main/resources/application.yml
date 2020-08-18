@@ -9,6 +9,16 @@ dubbo:
   registry:
     # 注册地址挂载到spring cloud注册中心
     address: spring-cloud://192.168.134.100
+#多协议配置
+#  protocols:
+#    dubbo:
+#      name: dubbo
+#      port: -1
+#    rest:
+#      name: rest
+#      port: 9090
+#      server: netty
+
 spring:
   main:
     #在springboot2.1以及高版本增加的，调整bean定义覆盖

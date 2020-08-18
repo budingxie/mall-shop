@@ -7,6 +7,14 @@ spring:
       discovery:
         # 注册中心地址
         server-addr: 192.168.134.100:8848
+    sentinel:
+      transport:
+        #配置sentinel dashboard地址
+        dashboard: 192.168.134.100:7081
+        # 本地会启动一个8719端口的http server，和 Sentinel web控制台做交互，
+        # http server接收到控制台的规则数据，会注册到 Sentinel服务
+        port: 8719
+
 server:
   port: 8021
 

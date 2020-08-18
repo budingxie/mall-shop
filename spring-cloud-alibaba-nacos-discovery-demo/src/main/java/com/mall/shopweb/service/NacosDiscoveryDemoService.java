@@ -1,6 +1,8 @@
 package com.mall.shopweb.service;
 
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.mall.shopweb.client.NacosRegisterDemoServiceClient;
 import com.mall.shopweb.loadbalancer.ServerLoadBalancer;
 import org.springframework.cloud.client.ServiceInstance;
@@ -37,6 +39,7 @@ public class NacosDiscoveryDemoService {
     private NacosRegisterDemoServiceClient client;
 
     @GetMapping("/getHello")
+    @SentinelResource(value = "getHello",blockHandler = "handleException")
     public String getHello() {
         //负载均衡
         //ServiceInstance serverInstance = loadBalancerClient.choose("spring-cloud-alibaba-nacos-register-demo");
@@ -51,6 +54,10 @@ public class NacosDiscoveryDemoService {
 
         String result = client.helloNacos();
         return result;
+    }
+
+    public String handleException(BlockException exception){
+        return "fail msg";
     }
 
 }

@@ -26,7 +26,14 @@ spring-cloud-alibaba-nacos-register-demo模块
 
 spring-cloud-alibaba-nacos-discovery-demo模块
 ---
-<br>服务发现demo, 采用http协议实现远程调用
+<br>服务发现demo, 采用http协议实现远程调用。
+<br>添加了Sentinel服务控制 
+<br>1.下载一个sentinel-dashboard-1.7.2.jar
+<br>2.启动命令nohup java -Dserver.port=7081 -Dcsp.sentinel.dashboard.server=192.168.134.100:7081 -jar sentinel-dashboard-1.7.2.jar &
+<br>2.1浏览器上访问http://192.168.134.100:7081(稍微有点延迟)会有一个sentinel-dashboard-1.7.2(自身的服务)。
+<br>3.在需要监控的服务添加Sentinel依赖, 在yml里面添加配置sentinel-dashboard的地址。
+<br>3.1在需要设置规则的方法(注意是方法,不一定要是controller)上加入@SentinelResource, 里面的属性配置自行查询资料。
+<br>4.设置一些规则数据, 参考https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel#%E9%85%8D%E7%BD%AE%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%BF%A1%E6%81%AF
 
 cloud-alibaba-dubbo-provider模块
 ---
